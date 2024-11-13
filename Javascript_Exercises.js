@@ -12,6 +12,7 @@ function dateFormat() {
     console.log("dd-mm-yyyy:",formattedDate3);
     console.log("dd/mm/yyyy:",today.toLocaleDateString());
 }
+dateFormat();
 
 /*
 Write a JavaScript program to determine whether a given year is a leap year.
@@ -22,6 +23,8 @@ function leapYear(yr) {
     else
         console.log(yr,": Not Leap year...");
 }
+leapYear(2000);
+leapYear(2001);
 
 /*
 Write a JavaScript program to find out if 1st January will be a Sunday between 2014 and 2050.
@@ -36,6 +39,7 @@ function newYearIsSunday(startYear, EndYear) {
             console.log(date.getFullYear());
     }
 }
+newYearIsSunday(2014, 2050);
 
 /*
 Write a JavaScript program to calculate multiplication and division of two numbers (input from the user).
@@ -63,12 +67,18 @@ function convertToFareheit(celsius) {
     const fareheit = ((celsius*9)/5)+32;
     console.log(celsius,"\u2103"," is",fareheit,"\u2109.");
 }
+convertToCelsius(45);
+convertToFareheit(60);
 
 //Write a JavaScript program to remove a character at the specified position in a given string and return the modified string.
 function removeCharacter(beforeModifying, index) {
     let afterModifying = beforeModifying.slice(0, index).concat(beforeModifying.slice(index+1));
     return afterModifying;
 }
+let beforeModifying = "Helllo Java!";
+let removeAt = 2;
+let afterModifying = removeCharacter(beforeModifying, 2);
+console.log("After removing character at the index",removeAt,"in the string",beforeModifying,":",afterModifying);
 
 //Write a JavaScript program to reverse a given string.
 function stringReverse(string) {
@@ -78,6 +88,7 @@ function stringReverse(string) {
     }
     console.log("Reversed string of",string,":",reversedString);
 }
+stringReverse("qwerty");
 
 // Write a function that calculates the sum of all elements in an array.
 function sumOfArray(originalArray) {
@@ -87,6 +98,9 @@ function sumOfArray(originalArray) {
     });
     return result;
 }
+let originalArray = [100,200,300,20,40,10];
+const sum = sumOfArray(originalArray);
+console.log("Sum of the array",originalArray,":",sum);
 
 // Write a function that finds the largest element in an array.
 function largestElementInArray(originalArray) {
@@ -97,18 +111,24 @@ function largestElementInArray(originalArray) {
     }
     return largestElement;
 }
+const largest = largestElementInArray(originalArray);
+console.log("Largest element of the array",originalArray,":",largest);
 
 // Write a function that filters out even numbers from an array.
 function evenNumbersArray(originalArray) {
     const evenNumbersArray = originalArray.filter((each) => each % 2 === 0);
     return evenNumbersArray;
 }
+const evenArray = evenNumbersArray(originalArray);
+console.log("Even numbers of the array",originalArray,":",evenArray);
 
 // Use the map function to square each element of an array.
 function squaredNumbersArray(originalArray) {
     const evenNumbersArray = originalArray.map((each) => each * each);
     return evenNumbersArray;
 }
+const squaredArray = squaredNumbersArray(originalArray);
+console.log("Squared numbers of the array",originalArray,":",squaredArray);
 
 // Create an object representing a person with properties like name, age, and address.
 function personObjectCreation(name, age) {
@@ -118,11 +138,19 @@ function personObjectCreation(name, age) {
     }
     return person;
 }
+const personObject = personObjectCreation("Test", 20);
+console.log(personObject);
 
 // Write a function that takes an object and a property name and returns the value of that property.
 function returnByPropertyName(person, propertyName) {
     return person[propertyName];
 }
+let propertyName1 = "age";
+const propertyValue1 = returnByPropertyName(personObject, propertyName1);
+console.log(propertyName1,":",propertyValue1);
+let propertyName2 = "name";
+const propertyValue2 = returnByPropertyName(personObject, propertyName2);
+console.log(propertyName2,":",propertyValue2);
 
 // Write a function that adds a new property to an object and another function that deletes a property.
 function addProperty(person, propertyName, propertyValue) {
@@ -133,6 +161,14 @@ function removeProperty(person, propertyName) {
     delete person[propertyName];
     return person;
 }
+let propertyName3 = "email";
+let propertyValue3 = "test@gmail.com";
+const objectWithNewProperty = addProperty(personObject, propertyName3, propertyValue3);
+console.log("After adding",propertyName3,":",objectWithNewProperty);
+
+let propertyName4 = "age";
+const objectWithDeletedProperty = removeProperty(personObject, propertyName4);
+console.log("After removing",propertyName4,":",objectWithDeletedProperty);
 
 // Create an object with nested objects representing different levels of information (e.g., a person with an address object).
 function personNestedObjectCreation(name, age, city, country) {
@@ -146,6 +182,8 @@ function personNestedObjectCreation(name, age, city, country) {
     }
     return person;
 }
+const personNestedObject = personNestedObjectCreation("Test", 20, "Almhult", "Sweden");
+console.log(personNestedObject);
 
 // Write a function that filters an object based on a condition.
 function filterObjectByCondition(person, findValues) {
@@ -157,6 +195,9 @@ function filterObjectByCondition(person, findValues) {
     }, {});
     return filteredObject;
 }
+let findValues = ["Test", 20];
+const newPerson = filterObjectByCondition(objectWithNewProperty, findValues);
+console.log(newPerson);
 
 // Write a function that merges two objects, combining their properties.
 function mergeObjects(student, course) {
@@ -170,6 +211,18 @@ function mergeObjects(student, course) {
     // Object.assign(student, course) --> Merges two objects
     return studentEnrolledInCourse;
 }
+let student = {
+    name: "Student1",
+    age: 18,
+    nationality: "Sweden"
+};
+let course = {
+    courseName: "Java",
+    typeOfSession: "Online"
+};
+const studentEnrolledInCourse = mergeObjects(student, course);
+console.log("Student with Enrolled Course:",studentEnrolledInCourse);
+
 
 // Write a JavaScript function to get the values of First and Last names of the following form.
 function getFormValue() {
@@ -209,75 +262,3 @@ function insert_row() {
     tableElement.appendChild(trElement1);
     tableElement.appendChild(trElement2);
 }
-
-// dateFormat();
-
-/* leapYear(2000);
- leapYear(2001); */
-
-// newYearIsSunday(2014, 2050);
-
-/* convertToCelsius(45);
-convertToFareheit(60); */
-
-/* let beforeModifying = "Helllo Java!";
-let removeAt = 2;
-let afterModifying = removeCharacter(beforeModifying, 2);
-console.log("After removing character at the index",removeAt,"in the string",beforeModifying,":",afterModifying); */
-
-// stringReverse("qwerty");
-
-/* let originalArray = [100,200,300,20,40,10];
-const sum = sumOfArray(originalArray);
-console.log("Sum of the array",originalArray,":",sum); */
-
-/* let originalArray = [100,200,-300,20,40,10];
-const largest = largestElementInArray(originalArray);
-console.log("Largest element of the array",originalArray,":",largest); */
-
-/* let originalArray = [100,201,-300,20,40,11];
-const evenArray = evenNumbersArray(originalArray);
-console.log("Even numbers of the array",originalArray,":",evenArray); */
-
-/* let originalArray = [100,200,-300,20,40,10];
-const squaredArray = squaredNumbersArray(originalArray);
-console.log("Squared numbers of the array",originalArray,":",squaredArray); */
-
-// const personObject = personObjectCreation("Test", 20);
-// console.log(personObject);
-
-// let propertyName1 = "age";
-// const propertyValue1 = returnByPropertyName(personObject, propertyName1);
-// console.log(propertyName1,":",propertyValue1);
-
-// let propertyName2 = "name";
-// const propertyValue2 = returnByPropertyName(personObject, propertyName2);
-// console.log(propertyName2,":",propertyValue2);
-
-// let propertyName3 = "email";
-// let propertyValue3 = "test@gmail.com";
-// const objectWithNewProperty = addProperty(personObject, propertyName3, propertyValue3);
-// console.log("After adding",propertyName3,":",objectWithNewProperty);
-
-// let propertyName4 = "age";
-// const objectWithDeletedProperty = removeProperty(personObject, propertyName4);
-// console.log("After removing",propertyName4,":",objectWithDeletedProperty);
-
-// const personNestedObject = personNestedObjectCreation("Test", 20, "Almhult", "Sweden");
-// console.log(personNestedObject);
-
-// let findValues = ["Test", 20];
-// const newPerson = filterObjectByCondition(objectWithNewProperty, findValues);
-// console.log(newPerson);
-
-// let student = {
-//     name: "Student1",
-//     age: 18,
-//     nationality: "Sweden"
-// };
-// let course = {
-//     courseName: "Java",
-//     typeOfSession: "Online"
-// };
-// const studentEnrolledInCourse = mergeObjects(student, course);
-// console.log("Student with Enrolled Course:",studentEnrolledInCourse);
